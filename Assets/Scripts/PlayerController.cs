@@ -11,6 +11,12 @@ public class PlayerController : MonoBehaviour
     private Animator anim;
     private bool isMoving;
     private Vector2 lastFacedDirection;
+    public float jumpForce = 8f;
+     public LayerMask groundLayer;
+     public Transform groundCheck;
+    public bool isGrounded;
+    public float isGroundedRadius = 0.1f;
+    public bool jumping;
 
     private void Start()
     {
@@ -24,9 +30,10 @@ public class PlayerController : MonoBehaviour
         var horizontalInput = Input.GetAxisRaw("Horizontal" + playerNumber);
         var verticalInput = Input.GetAxisRaw("Vertical" + playerNumber);
 
-        direction = new Vector2(horizontalInput, verticalInput);
 
-        if (direction != Vector2.zero)
+        direction = new Vector2(horizontalInput, rb.velocity.y);
+        isGrounded = IsGrounded();
+        if (direction.x != 0)
         {
             isMoving = true;
             lastFacedDirection = direction;
@@ -41,31 +48,39 @@ public class PlayerController : MonoBehaviour
         if (isMoving)
         {
             anim.SetFloat("x", direction.x);
-            //anim.SetFloat("y", direction.y);
         }
         else
         {
             anim.SetFloat("x", lastFacedDirection.x);
-            //anim.SetFloat("y", lastFacedDirection.y);
         }
-        if (isMoving)
+
+        if (Input.GetButtonDown("Fire1_" + playerNumber) && IsGrounded())
         {
-            GetComponent<SpriteRenderer>().flipX = direction.x < 0;
-        }else
-        {
-            GetComponent<SpriteRenderer>().flipX = lastFacedDirection.x < 0;
+            jumping = true;
         }
     }
-
+    void Jump()
+    {
+        rb.AddForce(Vector2.up * jumpForce,ForceMode2D.Force);
+    }
     void FixedUpdate()
     {
         if (isMoving)
         {
-            rb.velocity = direction * velocity;
+            rb.velocity = new Vector2(direction.x * velocity,rb.velocity.y);
         }
         else
         {
-            rb.velocity = Vector2.zero;
+            rb.velocity = new Vector2(0,rb.velocity.y);
         }
+        if (jumping)
+        {
+            Jump();
+            jumping = false;
+        }
+    }
+  public bool IsGrounded()
+    {
+        return Physics2D.OverlapCircle(groundCheck.position, 0.1f, groundLayer);
     }
 }
