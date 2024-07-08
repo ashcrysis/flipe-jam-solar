@@ -269,7 +269,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 219108260}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: groundChecker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -360,7 +360,7 @@ GameObject:
   m_Component:
   - component: {fileID: 510948455}
   - component: {fileID: 510948454}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -446,7 +446,7 @@ GameObject:
   - component: {fileID: 793847119}
   - component: {fileID: 793847118}
   - component: {fileID: 793847117}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: enemyHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -490,16 +490,16 @@ BoxCollider2D:
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
-    m_Bits: 191
+    m_Bits: 319
   m_ForceReceiveLayers:
     serializedVersion: 2
-    m_Bits: 191
+    m_Bits: 319
   m_ContactCaptureLayers:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 319
   m_CallbackLayers:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 383
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -563,7 +563,7 @@ MonoBehaviour:
   groundCheck: {fileID: 219108260}
   groundLayer:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 256
 --- !u!1 &833996557
 GameObject:
   m_ObjectHideFlags: 0
@@ -575,7 +575,7 @@ GameObject:
   - component: {fileID: 833996559}
   - component: {fileID: 833996558}
   - component: {fileID: 833996560}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -706,7 +706,7 @@ GameObject:
   - component: {fileID: 1509914086}
   - component: {fileID: 1509914085}
   - component: {fileID: 1509914087}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: enemyVision
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -818,10 +818,10 @@ BoxCollider2D:
     m_Bits: 4294967295
   m_ContactCaptureLayers:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 63
   m_CallbackLayers:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 63
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -863,7 +863,7 @@ Transform:
   m_GameObject: {fileID: 1809290017}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 21.26, y: -4.48, z: 0}
+  m_LocalPosition: {x: 23.38, y: -4.48, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
