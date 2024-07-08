@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7482976085683839523}
   - component: {fileID: 2269636192389428323}
   - component: {fileID: 3007501172313725391}
+  - component: {fileID: 3500455604976766010}
   - component: {fileID: 6394803146971352588}
   - component: {fileID: 8099500007039979893}
   - component: {fileID: 5064730551571269681}
@@ -105,6 +106,27 @@ MonoBehaviour:
   sprites:
   - {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   - {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+--- !u!114 &3500455604976766010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2434467790022956279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60b1b6f595097ac409625dddd8b1a742, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dashingPower: 15
+  IFrames: 0.25
+  invincible: 0
+  dashingCooldown: 1
+  dashCheck: {fileID: 4470866766800305081}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  isDashing: 0
 --- !u!114 &6394803146971352588
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -118,6 +140,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerNumber: 0
+  isMoving: 0
   jumpForce: 500
   groundLayer:
     serializedVersion: 2
@@ -125,6 +148,8 @@ MonoBehaviour:
   groundCheck: {fileID: 4470866766800305081}
   isGrounded: 0
   isGroundedRadius: 1.27
+  jumping: 0
+  isFacingRight: 1
 --- !u!50 &8099500007039979893
 Rigidbody2D:
   serializedVersion: 4

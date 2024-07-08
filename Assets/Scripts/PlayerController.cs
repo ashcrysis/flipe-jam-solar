@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     private float velocity;
     public int playerNumber;
     private Animator anim;
-    private bool isMoving;
+    public bool isMoving;
     private Vector2 lastFacedDirection;
     public float jumpForce = 8f;
      public LayerMask groundLayer;
@@ -17,6 +17,9 @@ public class PlayerController : MonoBehaviour
     public bool isGrounded;
     public float isGroundedRadius = 0.1f;
     public bool jumping;
+    public bool isFacingRight = true;
+    private float horizontalInput;
+    private float verticalInput;
 
     private void Start()
     {
@@ -27,9 +30,10 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        var horizontalInput = Input.GetAxisRaw("Horizontal" + playerNumber);
-        var verticalInput = Input.GetAxisRaw("Vertical" + playerNumber);
+        horizontalInput = Input.GetAxisRaw("Horizontal" + playerNumber);
+        verticalInput = Input.GetAxisRaw("Vertical" + playerNumber);
 
+        Flip();
 
         direction = new Vector2(horizontalInput, rb.velocity.y);
         isGrounded = IsGrounded();
@@ -64,23 +68,31 @@ public class PlayerController : MonoBehaviour
         rb.AddForce(Vector2.up * jumpForce,ForceMode2D.Force);
     }
     void FixedUpdate()
+{
+    if (isMoving && !GetComponent<Dash>().isDashing)
     {
-        if (isMoving)
-        {
-            rb.velocity = new Vector2(direction.x * velocity,rb.velocity.y);
-        }
-        else
-        {
-            rb.velocity = new Vector2(0,rb.velocity.y);
-        }
-        if (jumping)
-        {
-            Jump();
-            jumping = false;
-        }
+        rb.velocity = new Vector2(direction.x * velocity, rb.velocity.y);
     }
+    else if (!isMoving && !GetComponent<Dash>().isDashing)
+    {
+        rb.velocity = new Vector2(0, rb.velocity.y);
+    }
+    if (jumping)
+    {
+        Jump();
+        jumping = false;
+    }
+}
   public bool IsGrounded()
     {
         return Physics2D.OverlapCircle(groundCheck.position, 0.1f, groundLayer);
     }
+     private void Flip()
+    {
+        if (isFacingRight && horizontalInput < 0f || !isFacingRight && horizontalInput > 0f)
+        {
+            isFacingRight = !isFacingRight;
+        }
+    }
+
 }
