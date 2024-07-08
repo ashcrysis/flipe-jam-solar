@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8099500007039979893}
   - component: {fileID: 5064730551571269681}
   - component: {fileID: 635611866280673792}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -144,7 +144,7 @@ MonoBehaviour:
   jumpForce: 500
   groundLayer:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 264
   groundCheck: {fileID: 4470866766800305081}
   isGrounded: 0
   isGroundedRadius: 1.27
@@ -196,10 +196,10 @@ BoxCollider2D:
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
-    m_Bits: 191
+    m_Bits: 447
   m_ForceReceiveLayers:
     serializedVersion: 2
-    m_Bits: 191
+    m_Bits: 447
   m_ContactCaptureLayers:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -252,7 +252,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4470866766800305081}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: groundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}

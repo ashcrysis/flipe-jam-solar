@@ -50,7 +50,7 @@ public class EnemyController : MonoBehaviour
         {
             if (IsGrounded())
             {
-                if (foundPlayer || distanceToClosestPlayer < 1)
+                if (foundPlayer || distanceToClosestPlayer < 2)
                 {
                     MoveTowards(closestPlayer.transform.position);
                     followingPlayer = true;
