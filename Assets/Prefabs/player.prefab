@@ -141,15 +141,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerNumber: 0
   isMoving: 0
-  jumpForce: 500
+  jumpForce: 10
   groundLayer:
     serializedVersion: 2
-    m_Bits: 264
+    m_Bits: 256
   groundCheck: {fileID: 4470866766800305081}
   isGrounded: 0
-  isGroundedRadius: 1.27
+  isGroundedRadius: 0.1
   jumping: 0
   isFacingRight: 1
+  hasDoubleJumped: 0
+  jumpCount: 0
+  extraJumps: 2
 --- !u!50 &8099500007039979893
 Rigidbody2D:
   serializedVersion: 4

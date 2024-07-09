@@ -20,7 +20,9 @@ public class PlayerController : MonoBehaviour
     public bool isFacingRight = true;
     private float horizontalInput;
     private float verticalInput;
-
+    public bool hasDoubleJumped;
+    public int jumpCount;
+    public int extraJumps = 1;
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -58,15 +60,34 @@ public class PlayerController : MonoBehaviour
             anim.SetFloat("x", lastFacedDirection.x);
         }
 
-        if (Input.GetButtonDown("Fire1_" + playerNumber) && IsGrounded())
+        if (Input.GetButtonDown("Fire1_" + playerNumber))
         {
             jumping = true;
         }
+        if (IsGrounded())
+        {
+            jumpCount = 0;
+        }
     }
-    void Jump()
+void Jump()
+{
+    if (isGrounded)
     {
-        rb.AddForce(Vector2.up * jumpForce,ForceMode2D.Force);
+        jumpCount = 0; 
+        hasDoubleJumped = false;
+
+        rb.velocity = new Vector2(rb.velocity.x, 0);
+        rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        jumpCount++;
     }
+    else if (jumpCount < extraJumps - 1)
+    {
+        rb.velocity = new Vector2(rb.velocity.x, 0); 
+        rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        jumpCount++;
+    }
+}
+
     void FixedUpdate()
 {
     if (isMoving && !GetComponent<Dash>().isDashing)
