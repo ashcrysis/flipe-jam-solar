@@ -1293,6 +1293,7 @@ MonoBehaviour:
   minDistance: 3
   elevator: {fileID: 2076192367}
   canInteract: 0
+  expectedPlayerID: 1
 --- !u!1 &2046820730
 GameObject:
   m_ObjectHideFlags: 0
@@ -1563,6 +1564,7 @@ MonoBehaviour:
   minDistance: 3
   elevator: {fileID: 2076192367}
   canInteract: 0
+  expectedPlayerID: 2
 --- !u!212 &2121062194
 SpriteRenderer:
   m_ObjectHideFlags: 0
