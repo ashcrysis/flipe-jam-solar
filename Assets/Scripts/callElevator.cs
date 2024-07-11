@@ -22,7 +22,7 @@ public class callElevator : MonoBehaviour
     {
         canInteract = Vector2.Distance(transform.position, GameObject.FindGameObjectWithTag("Player").transform.position) < minDistance;
 
-        if (Input.GetButtonDown("Fire3") && canInteract )
+        if (Input.GetButtonDown("Fire4_1") && canInteract ) 
         {   
             float threshold = 1f;
             if (Vector2.Distance(elevator.transform.position, elevatorStartPosition.position) < threshold)
