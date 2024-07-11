@@ -12,10 +12,10 @@ public class PlayerAnimationController : MonoBehaviour
 
     void Start()
     {
-        playerController = GetComponent<PlayerController>();
+        /* playerController = GetComponent<PlayerController>();
         pSpriteRenderer = GetComponent<SpriteRenderer>();
 
-        pSpriteRenderer.sprite = sprites[playerController.playerNumber-1];
+        pSpriteRenderer.sprite = sprites[playerController.playerNumber-1]; */
         
     }
 

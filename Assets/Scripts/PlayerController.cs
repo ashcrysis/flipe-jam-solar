@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -39,34 +40,33 @@ public class PlayerController : MonoBehaviour
 
         direction = new Vector2(horizontalInput, rb.velocity.y);
         isGrounded = IsGrounded();
+
+        anim.SetBool("isJumping", !isGrounded);
+
         if (direction.x != 0)
         {
+          //  anim.SetFloat("x", Math.Abs(direction.x));
             isMoving = true;
             lastFacedDirection = direction;
+             anim.SetBool("isMoving", true);
         }
         else
         {
             isMoving = false;
+            anim.SetBool("isMoving", false);
         }
+        
 
-        anim.SetBool("isMoving", isMoving);
-
-        if (isMoving)
-        {
-            anim.SetFloat("x", direction.x);
-        }
-        else
-        {
-            anim.SetFloat("x", lastFacedDirection.x);
-        }
 
         if (Input.GetButtonDown("Fire1_" + playerNumber))
         {
             jumping = true;
+            //anim.SetBool("isJumping", true);
         }
         if (IsGrounded())
         {
             jumpCount = 0;
+           // anim.SetBool("isJumping", false);
         }
     }
 void Jump()
@@ -79,12 +79,16 @@ void Jump()
         rb.velocity = new Vector2(rb.velocity.x, 0);
         rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         jumpCount++;
+       // anim.SetBool("isJumping", true);
+        //anim.SetFloat("y", 1);
+
     }
     else if (jumpCount < extraJumps - 1)
     {
         rb.velocity = new Vector2(rb.velocity.x, 0); 
         rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         jumpCount++;
+       // anim.SetFloat("y", -1);
     }
 }
 
@@ -100,6 +104,7 @@ void Jump()
     }
     if (jumping)
     {
+        
         Jump();
         jumping = false;
     }
@@ -113,6 +118,9 @@ void Jump()
         if (isFacingRight && horizontalInput < 0f || !isFacingRight && horizontalInput > 0f)
         {
             isFacingRight = !isFacingRight;
+            Vector3 ls = transform.localScale;
+            ls.x *= -1f;
+            transform.localScale = ls;
         }
     }
 
