@@ -9,34 +9,53 @@ public class callElevator : MonoBehaviour
     public bool canInteract;
     private Transform elevatorStartPosition;
     private Transform elevatorEndPosition;
-
-
+    public int expectedPlayerID;
+    private GameObject p;
+    private bool playerFound = false;
 
     void Start()
     {
         elevatorStartPosition = elevator.GetComponent<Elevator>().starterPosition;
         elevatorEndPosition = elevator.GetComponent<Elevator>().endPosition;
+
     }
-
-    void LateUpdate()
+    void Update()
     {
-        canInteract = Vector2.Distance(transform.position, GameObject.FindGameObjectWithTag("Player").transform.position) < minDistance;
+        if (!playerFound){
+        var players = GameObject.FindGameObjectsWithTag("Player");
+        
+        foreach (var player in players){
+            if (player.GetComponent<PlayerController>().playerNumber == expectedPlayerID)
+            {
+                playerFound = true;
+                p = player;
+                return;
 
-        if (Input.GetButtonDown("Fire3") && canInteract )
-        {   
-            float threshold = 1f;
-            if (Vector2.Distance(elevator.transform.position, elevatorStartPosition.position) < threshold)
-            {
-                StartCoroutine(elevatorChange(1f,elevatorEndPosition));
-                return;
-            }
-            if (Vector2.Distance(elevator.transform.position, elevatorEndPosition.position) < threshold)
-            {
-                StartCoroutine(elevatorChange(1f,elevatorStartPosition));
-                return;
             }
         }
+        }
+    }
+    void LateUpdate()
+    {
+            if (playerFound){
         
+                canInteract = Vector2.Distance(transform.position, p.transform.position) < minDistance;
+
+                if (Input.GetButtonDown("Fire4_"+expectedPlayerID) && canInteract ) 
+                {   
+                    float threshold = 1f;
+                    if (Vector2.Distance(elevator.transform.position, elevatorStartPosition.position) < threshold)
+                    {
+                        StartCoroutine(elevatorChange(1f,elevatorEndPosition));
+                        return;
+                    }
+                    if (Vector2.Distance(elevator.transform.position, elevatorEndPosition.position) < threshold)
+                    {
+                        StartCoroutine(elevatorChange(1f,elevatorStartPosition));
+                        return;
+                    }
+                }
+        }
     }
     private IEnumerator elevatorChange(float delay, Transform destiny){
         Elevator elevatorComponent = elevator.GetComponent<Elevator>();
