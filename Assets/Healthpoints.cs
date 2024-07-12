@@ -12,7 +12,7 @@ public class Healthpoints : MonoBehaviour
         if (HP <= 0)
         {
             //lógica de morte aqui
-            //SceneManager.LoadScene("Game"); 
+            SceneManager.LoadScene(0); 
         }
     }
     public void TakeDamage(int damage)
