@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private float velocity;
     public int playerNumber;
-    private Animator anim;
+    internal Animator anim;
     public bool isMoving;
     private Vector2 lastFacedDirection;
     public float jumpForce = 8f;
@@ -24,6 +24,9 @@ public class PlayerController : MonoBehaviour
     public bool hasDoubleJumped;
     public int jumpCount;
     public int extraJumps = 1;
+    public int points = 0;
+
+    public bool isDoubleJumping = false;
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -64,6 +67,11 @@ public class PlayerController : MonoBehaviour
         if (IsGrounded())
         {
             jumpCount = 0;
+            anim.SetBool("DoubleJump", false);
+        }
+
+        if(jumpCount > 0 && isDoubleJumping){
+            anim.SetBool("DoubleJump", true);
         }
     }
 void Jump()
@@ -105,7 +113,7 @@ void Jump()
         jumping = false;
     }
 }
-  public bool IsGrounded()
+    public bool IsGrounded()
     {
         return Physics2D.OverlapCircle(groundCheck.position, 0.1f, groundLayer);
     }
@@ -117,6 +125,14 @@ void Jump()
             Vector3 ls = transform.localScale;
             ls.x *= -1f;
             transform.localScale = ls;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other) {
+        if (other.gameObject.CompareTag("Item")){
+            float delay = 0f;
+            points++;
+            Destroy(other.gameObject, delay);
         }
     }
 

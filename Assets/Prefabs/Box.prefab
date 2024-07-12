@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1318768818788824233}
   - component: {fileID: 452073675198189362}
   - component: {fileID: 4423244607266774833}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Box
   m_TagString: breakable
   m_Icon: {fileID: 0}
@@ -28,7 +28,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.43, y: 4.41, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.48164105, y: 0.48164105, z: 0.36297736}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -74,12 +74,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: dd4180782fb9cc44f890020274c22a6c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1dd4bf0d5c9036c499094f151b433ab1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.16, y: 1.17}
+  m_Size: {x: 2.34, y: 2.34}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -94,7 +94,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 7309733339843697095}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 21016acf1e8f13d4f91233da15c1d89a, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -121,8 +121,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.16, y: 1.17}
-    newSize: {x: 1.16, y: 1.17}
+    oldSize: {x: 2.34, y: 2.34}
+    newSize: {x: 2.34, y: 2.34}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0

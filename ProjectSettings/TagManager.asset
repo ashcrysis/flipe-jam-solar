@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Box
   - breakable
+  - Item
   layers:
   - Default
   - TransparentFX

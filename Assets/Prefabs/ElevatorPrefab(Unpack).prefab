@@ -59,7 +59,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 2.97, y: 2.6699998, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.45, y: 0.45, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6783496503410587234}
@@ -338,6 +338,8 @@ MonoBehaviour:
   endPosition: {fileID: 6241212028249626268}
   elevatorSpeed: 6
   destiny: {fileID: 0}
+  elevatorOff: {fileID: 21300000, guid: d23c8c3acb958fc468a68d5aa946327f, type: 3}
+  elevatorOn: {fileID: 196309190, guid: 7367aa18d718fe0479b473335c1ffc3a, type: 3}
 --- !u!1 &3557783424857336018
 GameObject:
   m_ObjectHideFlags: 0
@@ -366,7 +368,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 2.97, y: -4.29, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.45, y: 0.45, z: 0.66059}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6783496503410587234}

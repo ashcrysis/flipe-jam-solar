@@ -47,7 +47,7 @@ public class callElevator : MonoBehaviour
                     if (Vector2.Distance(elevator.transform.position, elevatorStartPosition.position) < threshold)
                     {
                         StartCoroutine(elevatorChange(1f,elevatorEndPosition));
-                        return;
+                        return;             
                     }
                     if (Vector2.Distance(elevator.transform.position, elevatorEndPosition.position) < threshold)
                     {

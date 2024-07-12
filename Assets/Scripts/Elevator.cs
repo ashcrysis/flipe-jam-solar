@@ -9,14 +9,26 @@ public class Elevator : MonoBehaviour
     private Rigidbody2D rb;
     public float elevatorSpeed;
     public Transform destiny;
+    private SpriteRenderer spriteRenderer;
+    public Sprite elevatorOff;
+    public Sprite elevatorOn;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         destiny = starterPosition;
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     void FixedUpdate()
     {
         rb.MovePosition(Vector2.MoveTowards(rb.position, destiny.position, elevatorSpeed * Time.fixedDeltaTime));
+    }
+
+    private void Update() {
+        if(rb.position.y != destiny.position.y){
+            spriteRenderer.sprite = elevatorOn;
+        }else{
+            spriteRenderer.sprite = elevatorOff;
+        }
     }
 }

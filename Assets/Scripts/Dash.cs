@@ -41,7 +41,10 @@ public class Dash : MonoBehaviour
         if (Input.GetButtonDown(fireAxis) && ableDash() && canDash)
         {
             StartCoroutine(DashCoroutine());
+            
         }
+
+        player.anim.SetBool("isDashing", isDashing);
 
     }
 
