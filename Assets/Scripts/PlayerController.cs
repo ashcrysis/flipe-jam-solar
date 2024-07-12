@@ -45,10 +45,9 @@ public class PlayerController : MonoBehaviour
 
         if (direction.x != 0)
         {
-          //  anim.SetFloat("x", Math.Abs(direction.x));
             isMoving = true;
             lastFacedDirection = direction;
-             anim.SetBool("isMoving", true);
+            anim.SetBool("isMoving", true);
         }
         else
         {
@@ -61,12 +60,10 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Fire1_" + playerNumber))
         {
             jumping = true;
-            //anim.SetBool("isJumping", true);
         }
         if (IsGrounded())
         {
             jumpCount = 0;
-           // anim.SetBool("isJumping", false);
         }
     }
 void Jump()
@@ -79,8 +76,7 @@ void Jump()
         rb.velocity = new Vector2(rb.velocity.x, 0);
         rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         jumpCount++;
-       // anim.SetBool("isJumping", true);
-        //anim.SetFloat("y", 1);
+
 
     }
     else if (jumpCount < extraJumps - 1)
@@ -88,7 +84,7 @@ void Jump()
         rb.velocity = new Vector2(rb.velocity.x, 0); 
         rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         jumpCount++;
-       // anim.SetFloat("y", -1);
+
     }
 }
 
