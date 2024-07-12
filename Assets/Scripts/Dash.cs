@@ -34,14 +34,12 @@ public class Dash : MonoBehaviour
         isFacingRight = player.isFacingRight;
         dir = isFacingRight ? 1f : -1f;
 
-
         if (!player.IsGrounded())
         {
             invincible = false;
         }
         if (Input.GetButtonDown(fireAxis) && ableDash() && canDash)
         {
-         
             StartCoroutine(DashCoroutine());
         }
 
@@ -66,7 +64,7 @@ public class Dash : MonoBehaviour
             rb.velocity = new Vector2(0f,rb.velocity.y);
         }
         else{
-            rb.velocity = new Vector2(rb.velocity.x-(dashingPower * dir)/2,rb.velocity.y);
+            rb.velocity = new Vector2(rb.velocity.x- (dashingPower * dir)/2,rb.velocity.y);
         }
         isDashing = false;
         yield return new WaitForSeconds(dashingCooldown);

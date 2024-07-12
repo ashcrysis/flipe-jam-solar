@@ -7,17 +7,27 @@ public class GameController : MonoBehaviour
 {
     public GameObject playerPrefab;
     private List<GameObject> players = new List<GameObject>();
-
+    public Transform spawnpointp1;
+    public Transform spawnpointp2;
     void Start()
     {
         int connectedControllers = GetConnectedControllers();
 
         for (int i = 1; i <= connectedControllers; i++)
-        {
-            GameObject player = Instantiate(playerPrefab, new Vector3(i-0.5f * 2.0f, 0, 0), Quaternion.identity);
-            PlayerController playerController = player.GetComponent<PlayerController>();
-            playerController.playerNumber = i;
-            players.Add(player);
+        {   
+            if (i == 1)
+            {
+                GameObject player = Instantiate(playerPrefab, spawnpointp1.transform.position, Quaternion.identity);
+                PlayerController playerController = player.GetComponent<PlayerController>();
+                playerController.playerNumber = i;
+                players.Add(player);
+            }else
+            {
+                 GameObject player = Instantiate(playerPrefab, spawnpointp2.transform.position, Quaternion.identity);
+                PlayerController playerController = player.GetComponent<PlayerController>();
+                playerController.playerNumber = i;
+                players.Add(player);
+            }
         }
     }
 
