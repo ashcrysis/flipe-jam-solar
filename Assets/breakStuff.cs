@@ -16,7 +16,6 @@ public class breakStuff : MonoBehaviour
         if (other.gameObject.CompareTag("breakable") && canBreakStuff && gameObject.transform.position.y < other.gameObject.transform.position.y) 
         {
             float delay = 0f;
-            Debug.Log("tentou quebrar");
             // inserir efeitos visuais e troca de animação do negocio quebrado aqui
             Destroy(other.gameObject, delay);
         }    

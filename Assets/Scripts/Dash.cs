@@ -57,15 +57,11 @@ public class Dash : MonoBehaviour
         canDash = false;
 
         isDashing = true;
-        rb.velocity = new Vector2(transform.localScale.x * (dashingPower * dir), rb.velocity.y);
+        rb.velocity = new Vector2(dashingPower * dir, rb.velocity.y);
         yield return new WaitForSeconds(dashingTime);
-        if (player.isMoving)
-        {
-            rb.velocity = new Vector2(0f,rb.velocity.y);
-        }
-        else{
-            rb.velocity = new Vector2(rb.velocity.x- (dashingPower * dir)/2,rb.velocity.y);
-        }
+ 
+        rb.velocity = new Vector2(0f, rb.velocity.y);
+        
         isDashing = false;
         yield return new WaitForSeconds(dashingCooldown);
 

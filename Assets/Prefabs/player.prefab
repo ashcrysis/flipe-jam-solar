@@ -121,9 +121,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dashingPower: 15
-  IFrames: 0.25
+  IFrames: 0.35
   invincible: 0
-  dashingCooldown: 1
+  dashingCooldown: 0.5
   dashCheck: {fileID: 4470866766800305081}
   groundLayer:
     serializedVersion: 2
@@ -214,7 +214,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.019565433, y: -0.43043983}
+  m_Offset: {x: 0.0385305, y: -0.43043983}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -225,7 +225,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.0586963, y: 1.8608792}
+  m_Size: {x: 0.8943326, y: 1.8608792}
   m_EdgeRadius: 0
 --- !u!95 &635611866280673792
 Animator:
