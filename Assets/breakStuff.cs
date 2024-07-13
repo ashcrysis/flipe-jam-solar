@@ -4,20 +4,25 @@ using UnityEngine;
 
 public class breakStuff : MonoBehaviour
 {
-    private bool canBreakStuff = false;
+    private Dash dash;
+
     void Update()
     {
-        var dash = GetComponent<Dash>();
+         dash = GetComponent<Dash>();
         var pControl = GetComponent<PlayerController>();
-        canBreakStuff = dash.invincible || !pControl.isGrounded ;
     }
-     void OnCollisionEnter2D(Collision2D other)
+
+    void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("breakable") && canBreakStuff && gameObject.transform.position.y < other.gameObject.transform.position.y) 
+        var pControl = GetComponent<PlayerController>();
+        
+        bool isJumping = !pControl.isGrounded;
+        bool isBelowOtherObject = gameObject.transform.position.y < other.gameObject.transform.position.y;
+
+       if (other.gameObject.CompareTag("breakable") && (dash.isDashing || (isJumping && isBelowOtherObject))) 
         {
             float delay = 0f;
-            // inserir efeitos visuais e troca de animação do negocio quebrado aqui
             Destroy(other.gameObject, delay);
-        }    
+        }
     }
 }
