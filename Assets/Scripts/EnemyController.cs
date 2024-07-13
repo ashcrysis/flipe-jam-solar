@@ -15,6 +15,7 @@ public class EnemyController : MonoBehaviour
     private bool movingToPointA = true;
     private bool followingPlayer = false;
     private bool playerSpawned = false;
+    public float minDistance;
     private bool hasRun = false;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
@@ -77,7 +78,7 @@ public class EnemyController : MonoBehaviour
             {
                 MoveTowards(new Vector2(pointA.position.x, rb.position.y));
 
-                if (Vector2.Distance(rb.position, pointA.position) < 2f)
+                if (Vector2.Distance(rb.position, pointA.position) < minDistance)
                 {
                     movingToPointA = false;
                 }
@@ -86,7 +87,7 @@ public class EnemyController : MonoBehaviour
             {
                 MoveTowards(new Vector2(pointB.position.x, rb.position.y));
 
-                if (Vector2.Distance(rb.position, pointB.position) < 2f)
+                if (Vector2.Distance(rb.position, pointB.position) < minDistance)
                 {
                     movingToPointA = true;
                 }
