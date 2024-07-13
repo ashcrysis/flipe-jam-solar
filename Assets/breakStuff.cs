@@ -8,7 +8,7 @@ public class breakStuff : MonoBehaviour
 
     void Update()
     {
-         dash = GetComponent<Dash>();
+        dash = GetComponent<Dash>();
         var pControl = GetComponent<PlayerController>();
     }
 
@@ -21,7 +21,8 @@ public class breakStuff : MonoBehaviour
 
        if (other.gameObject.CompareTag("breakable") && (dash.isDashing || (isJumping && isBelowOtherObject))) 
         {
-            float delay = 0f;
+            other.gameObject.GetComponent<Animator>().SetBool("isBreaking", true);
+            float delay = 1f;
             Destroy(other.gameObject, delay);
         }
     }
