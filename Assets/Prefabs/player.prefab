@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dashingPower: 10
-  IFrames: 0.35
+  IFrames: 0.5
   invincible: 0
   dashingCooldown: 0.5
   dashCheck: {fileID: 4470866766800305081}
