@@ -8,6 +8,8 @@ public class Enemy : MonoBehaviour
     private bool isColliding;
     public float hitDelay = 1f;
     public GameObject player = null;
+    public AudioSource damageAudio;
+    public AudioSource damagedAudio;
     void Update()
     {
         if (player != null && canDamage)
@@ -16,6 +18,7 @@ public class Enemy : MonoBehaviour
             if (!player.gameObject.GetComponent<Dash>().invincible)
             {
                 hp.TakeDamage(damage);
+               damageAudio.Play();
                 canDamage = false;
                 Debug.Log("dealt damage");
                 StartCoroutine(resetCanDamage(hitDelay));
@@ -31,6 +34,7 @@ public class Enemy : MonoBehaviour
             if (player.GetComponent<Rigidbody2D>().velocity.y < 0 && player.transform.position.y > transform.position.y + 0.2)
             {
                 canDamage = false;
+                damagedAudio.Play();
                 Destroy(gameObject);
             }
         }

@@ -23,6 +23,7 @@ public class breakStuff : MonoBehaviour
         {
             other.gameObject.GetComponent<BoxCollider2D>().enabled = false;
             other.gameObject.GetComponent<Animator>().SetBool("isBreaking", true);
+            other.gameObject.GetComponent<AudioSource>().Play();
             float delay = 1f;
             Destroy(other.gameObject, delay);
         }

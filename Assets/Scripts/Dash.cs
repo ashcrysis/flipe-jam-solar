@@ -20,6 +20,7 @@ public class Dash : MonoBehaviour
     private PlayerController player;
     private CapsuleCollider2D playerCollider;
     private Animator anim;
+    public AudioSource audioSource;
     private string fireAxis;
 
     void Start()
@@ -58,7 +59,7 @@ public class Dash : MonoBehaviour
     private IEnumerator DashCoroutine()
     {
         StartCoroutine(StartInvincibility());
-
+        audioSource.Play();
         canDash = false;
 
         isDashing = true;

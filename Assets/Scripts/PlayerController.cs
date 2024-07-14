@@ -25,7 +25,8 @@ public class PlayerController : MonoBehaviour
     public int jumpCount;
     public int extraJumps = 1;
     public int points = 0;
-
+    public AudioSource itemSource;
+    public AudioSource jumpSource;
     public bool isDoubleJumping = false;
     private void Start()
     {
@@ -83,6 +84,7 @@ void Jump()
 
         rb.velocity = new Vector2(rb.velocity.x, 0);
         rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        jumpSource.Play();
         jumpCount++;
 
 
@@ -91,6 +93,7 @@ void Jump()
     {
         rb.velocity = new Vector2(rb.velocity.x, 0); 
         rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        jumpSource.Play();
         jumpCount++;
 
     }
@@ -132,6 +135,7 @@ void Jump()
         if (other.gameObject.CompareTag("Item")){
             float delay = 0f;
             points++;
+            itemSource.Play();
             Destroy(other.gameObject, delay);
         }
     }
