@@ -10,12 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 2205656105402516193}
   - component: {fileID: 4350194597124458679}
-  - component: {fileID: 8001509299339489818}
   - component: {fileID: 1549148489520014527}
   - component: {fileID: 7653628328349327897}
   - component: {fileID: 1251312139413868041}
   - component: {fileID: 1844083338380772319}
   - component: {fileID: 2453755883923776665}
+  - component: {fileID: 6025706156785595358}
   m_Layer: 0
   m_Name: ArQuente
   m_TagString: Untagged
@@ -90,19 +90,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8001509299339489818
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5384241628718675811}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1f050f661965c140a7a0e79fac85a59, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 1
 --- !u!50 &1549148489520014527
 Rigidbody2D:
   serializedVersion: 4
@@ -224,3 +211,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.1722925, y: 3.02}
   m_EdgeRadius: 0
+--- !u!114 &6025706156785595358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5384241628718675811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3712dff32f591d3489fcd194525adc12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
+  hitDelay: 5
+  player: {fileID: 0}
