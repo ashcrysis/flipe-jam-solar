@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class hotAir : MonoBehaviour
 {
     public int damage = 1;
     private bool canDamage = true;
@@ -23,20 +23,15 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter2D(Collision2D other)
+   void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
             player = other.gameObject;
-            if (player.GetComponent<Rigidbody2D>().velocity.y < 0 && player.transform.position.y > transform.position.y + 0.2)
-            {
-                canDamage = false;
-                Destroy(gameObject);
-            }
         }
     }
 
-    void OnCollisionExit2D(Collision2D other)
+    void OnTriggerExit2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player") && !canDamage)
         {

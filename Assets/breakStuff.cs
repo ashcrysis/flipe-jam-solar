@@ -21,6 +21,7 @@ public class breakStuff : MonoBehaviour
 
        if (other.gameObject.CompareTag("breakable") && (dash.isDashing || (isJumping && isBelowOtherObject))) 
         {
+            other.gameObject.GetComponent<BoxCollider2D>().enabled = false;
             other.gameObject.GetComponent<Animator>().SetBool("isBreaking", true);
             float delay = 1f;
             Destroy(other.gameObject, delay);

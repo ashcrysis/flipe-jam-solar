@@ -19,6 +19,7 @@ public class Dash : MonoBehaviour
     private float dir = 1f;
     private PlayerController player;
     private CapsuleCollider2D playerCollider;
+    private Animator anim;
     private string fireAxis;
 
     void Start()
@@ -27,6 +28,7 @@ public class Dash : MonoBehaviour
         playerCollider = GetComponent<CapsuleCollider2D>();
         fireAxis = "Fire3_" + player.playerNumber;
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
 
     void Update()
@@ -44,7 +46,7 @@ public class Dash : MonoBehaviour
             
         }
 
-        player.anim.SetBool("isDashing", isDashing);
+        anim.SetBool("isDashing", isDashing);
 
     }
 
